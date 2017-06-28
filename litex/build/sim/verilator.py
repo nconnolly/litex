@@ -146,7 +146,7 @@ def _run_sim(build_name):
 class SimVerilatorToolchain:
     def build(self, platform, fragment, build_dir="build", build_name="top",
             toolchain_path=None, serial="console", run=True, verbose=True):
-        tools.mkdir_noerror(build_dir)
+        os.makedirs(build_dir, exist_ok=True)
         os.chdir(build_dir)
 
         if not isinstance(fragment, _Fragment):
